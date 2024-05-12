@@ -17,7 +17,7 @@ void resett(){
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_7
 	                          |GPIO_PIN_8|GPIO_PIN_9, GPIO_PIN_RESET);
 
-	  /*Configure GPIO pin Output Level */
+	
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_10
 	                          |GPIO_PIN_11|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5
 	                          |GPIO_PIN_6, GPIO_PIN_RESET);
@@ -25,23 +25,18 @@ void resett(){
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin){
 
 		if(GPIO_pin == GPIO_PIN_10){
-				 count ++;
-				 if(count == 2){
-					 NVIC_SystemReset();	//reset lai he thong
-					 count = 0;
-					 c = 0;
-				 }
-			}else if(GPIO_pin == GPIO_PIN_11) {
-				resett();
-				c =1;
-			}
-			else if(GPIO_pin == GPIO_PIN_12) {
-				resett();
-				c = 2;
+			NVIC_SystemReset();	//reset lai he thong
+		}else if(GPIO_pin == GPIO_PIN_11) {
+			resett();
+			c =1;
+		}
+		else if(GPIO_pin == GPIO_PIN_12) {
+			resett();
+			c = 2;
 
-			}else if(GPIO_pin == GPIO_PIN_6){
-				time =7;
-			}
+		}else if(GPIO_pin == GPIO_PIN_6){
+			time =7;
+		}
 }
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
