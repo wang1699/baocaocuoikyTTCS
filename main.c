@@ -28,14 +28,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_pin){
 			NVIC_SystemReset();	//reset lai he thong
 		}else if(GPIO_pin == GPIO_PIN_11) {
 			resett();
-			c =1;
+			c =1;		 
 		}
 		else if(GPIO_pin == GPIO_PIN_12) {
 			resett();
 			c = 2;
 
 		}else if(GPIO_pin == GPIO_PIN_6){
-			time =7;
+			time =7;	// thay đổi thời gian đếm ngược
 		}
 }
 /* Private function prototypes -----------------------------------------------*/
